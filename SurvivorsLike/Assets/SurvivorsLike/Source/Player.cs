@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
@@ -24,7 +25,7 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector2 NextVec = InputVec.normalized * Speed * Time.fixedDeltaTime;
+        Vector2 NextVec = InputVec * Speed * Time.fixedDeltaTime;
         Rigid.MovePosition(Rigid.position + NextVec);
     }
 
@@ -32,7 +33,13 @@ public class Player : MonoBehaviour
     void Update()
     {
         // 자연스럽게 보간 적용된 상태로 움직이고 싶다면 GetAxis
-        InputVec.x = Input.GetAxisRaw("Horizontal");
-        InputVec.y = Input.GetAxisRaw("Vertical");
+        //InputVec.x = Input.GetAxisRaw("Horizontal");
+        //InputVec.y = Input.GetAxisRaw("Vertical");
+    }
+
+    void OnMove(InputValue value)
+    {
+        // 여기서 노말라이즈도 적용이 같이 되고 있음
+        InputVec = value.Get<Vector2>();
     }
 }
