@@ -9,12 +9,16 @@ public class Player : MonoBehaviour
     public float Speed;
 
     Rigidbody2D Rigid;
+    SpriteRenderer Spriter;
+    Animator Anim;
 
     void Awake()
     {
         //Speed = 3.0f;
 
         Rigid = GetComponent<Rigidbody2D>();
+        Spriter = GetComponent<SpriteRenderer>();
+        Anim = GetComponent<Animator>();
     }
 
     // Start is called before the first frame update
@@ -32,14 +36,22 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // 자연스럽게 보간 적용된 상태로 움직이고 싶다면 GetAxis
-        //InputVec.x = Input.GetAxisRaw("Horizontal");
-        //InputVec.y = Input.GetAxisRaw("Vertical");
+
+    }
+
+    void LateUpdate()
+    {
+        Anim.SetFloat("Speed", InputVec.magnitude);
+
+        if(0 != InputVec.x)
+        {
+            // InputVec.x가 0보다 작으면(왼쪽) true(반전On), 크면(오른쪽) false
+            Spriter.flipX = 0 > InputVec.x;
+        }
     }
 
     void OnMove(InputValue value)
     {
-        // 여기서 노말라이즈도 적용이 같이 되고 있음
         InputVec = value.Get<Vector2>();
     }
 }

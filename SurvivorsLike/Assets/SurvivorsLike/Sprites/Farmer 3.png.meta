@@ -3,7 +3,7 @@ guid: 57a1443e67528144aa07582927559650
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -77,6 +77,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -89,6 +90,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -101,6 +103,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -113,6 +116,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -125,13 +129,14 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Run 0
+      name: Run0
       rect:
         serializedVersion: 2
         x: 0
@@ -152,7 +157,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run 1
+      name: Run1
       rect:
         serializedVersion: 2
         x: 19
@@ -173,7 +178,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run 2
+      name: Run2
       rect:
         serializedVersion: 2
         x: 38
@@ -194,7 +199,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run 3
+      name: Run3
       rect:
         serializedVersion: 2
         x: 0
@@ -215,7 +220,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run 4
+      name: Run4
       rect:
         serializedVersion: 2
         x: 19
@@ -236,7 +241,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run 5
+      name: Run5
       rect:
         serializedVersion: 2
         x: 38
@@ -257,7 +262,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stand 0
+      name: Idle0
       rect:
         serializedVersion: 2
         x: 0
@@ -278,7 +283,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stand 1
+      name: Idle1
       rect:
         serializedVersion: 2
         x: 19
@@ -299,7 +304,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stand 2
+      name: Idle2
       rect:
         serializedVersion: 2
         x: 38
@@ -320,7 +325,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stand 3
+      name: Idle3
       rect:
         serializedVersion: 2
         x: 0
@@ -341,7 +346,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dead 0
+      name: Dead0
       rect:
         serializedVersion: 2
         x: 19
@@ -362,7 +367,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Dead 1
+      name: Dead1
       rect:
         serializedVersion: 2
         x: 38
@@ -393,18 +398,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Dead 0: 369909130
-      Run 0: -2088749509
-      Run 5: -2066638598
-      Stand 3: 1883720508
-      Run 2: -198311514
-      Run 3: -1997520891
-      Stand 0: 938132271
-      Stand 2: 1684076649
-      Run 4: -1017442464
-      Run 1: -1836318166
-      Dead 1: 1773231339
-      Stand 1: -791905833
+      Dead0: 369909130
+      Dead1: 1773231339
+      Idle0: 938132271
+      Idle1: -791905833
+      Idle2: 1684076649
+      Idle3: 1883720508
+      Run0: -2088749509
+      Run1: -1836318166
+      Run2: -198311514
+      Run3: -1997520891
+      Run4: -1017442464
+      Run5: -2066638598
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
