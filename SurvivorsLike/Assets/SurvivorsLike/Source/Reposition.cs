@@ -14,13 +14,16 @@ public class Reposition : MonoBehaviour
         // 맵 위치
         Vector3 MapPosition = transform.position;
 
-        float DiffPosX = Mathf.Abs(PlayerPosition.x - MapPosition.x);
-        float DiffPosY = Mathf.Abs(PlayerPosition.y - MapPosition.y);
-
         // 플레이어 방향
         Vector3 PlayerDirection = GameManager.Instance.MainPlayer.InputVec;
-        float DirX = 0 > PlayerDirection.x ? -1 : 1;
-        float DirY = 0 > PlayerDirection.y ? -1 : 1;
+        float DirX = PlayerPosition.x - MapPosition.x;
+        float DirY = PlayerPosition.y - MapPosition.y;
+
+        float DiffPosX = Mathf.Abs(DirX);
+        float DiffPosY = Mathf.Abs(DirY);
+
+        DirX = 0 > DirX ? -1 : 1;
+        DirY = 0 > DirY ? -1 : 1;
 
         switch (transform.tag)
         {
