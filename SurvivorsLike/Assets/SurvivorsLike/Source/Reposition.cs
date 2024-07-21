@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Reposition : MonoBehaviour
 {
+    Collider2D Col;
+
+    private void Awake()
+    {
+        Col = GetComponent<Collider2D>();
+    }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         // 태그가 Area일 때만 작동
@@ -30,6 +37,13 @@ public class Reposition : MonoBehaviour
             case "Ground":
                 if (DiffPosX > DiffPosY) transform.Translate(Vector3.right * DirX * 40);
                 else if (DiffPosX < DiffPosY) transform.Translate(Vector3.up * DirY * 40);
+                break;
+            case "Enemy":
+                if(true == Col.enabled)
+                {
+                    // 플레이어 방향에 따라 맞은 편에서 등장
+                    transform.Translate(PlayerDirection * 25 + new Vector3(Random.Range(-3.0f, 3.0f), Random.Range(-3.0f, 3.0f), 0));
+                }
                 break;
             default:
                 break;
