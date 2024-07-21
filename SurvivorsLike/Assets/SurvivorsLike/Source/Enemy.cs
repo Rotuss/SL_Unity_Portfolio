@@ -24,6 +24,12 @@ public class Enemy : MonoBehaviour
         
     }
 
+    private void OnEnable()
+    {
+        // 씬에 활성화 시 타겟 지정
+        Target = GameManager.Instance.MainPlayer.GetComponent<Rigidbody2D>();
+    }
+
     private void FixedUpdate()
     {
         if (false == IsLive) return;
