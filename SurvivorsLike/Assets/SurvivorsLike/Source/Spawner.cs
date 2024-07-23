@@ -9,6 +9,7 @@ public class Spawner : MonoBehaviour
     public Transform[] SpawnPoint;
 
     float Timer;
+    int Level;
 
     private void Awake()
     {
@@ -26,8 +27,9 @@ public class Spawner : MonoBehaviour
     void Update()
     {
         Timer += Time.deltaTime;
+        Level = Mathf.FloorToInt(GameManager.Instance.GameTime / 10.0f);
 
-        if(0.5f < Timer)
+        if((0 == Level ? 0.5f : 0.2f) < Timer)
         {
             Timer = 0.0f;
             Spawn();
@@ -37,7 +39,7 @@ public class Spawner : MonoBehaviour
 
     void Spawn()
     {
-        GameObject EnemyObj = GameManager.Instance.Pool.Get(UnityEngine.Random.Range(0, GameManager.Instance.Pool.Prefabs.Length));
+        GameObject EnemyObj = GameManager.Instance.Pool.Get(Level);
         EnemyObj.transform.position = SpawnPoint[UnityEngine.Random.Range(1, SpawnPoint.Length)].position;
 
     }
