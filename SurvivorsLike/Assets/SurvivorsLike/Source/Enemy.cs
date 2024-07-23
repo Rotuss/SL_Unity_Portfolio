@@ -5,17 +5,22 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public Rigidbody2D Target;
+    public RuntimeAnimatorController[] AnimatorController;
     public float Speed;
+    public float MaxHP;
+    public float HP;
 
     Rigidbody2D Rigid;
     SpriteRenderer Spriter;
+    Animator Anim;
 
-    bool IsLive = true;
+    bool IsLive;
 
     private void Awake()
     {
         Rigid = GetComponent<Rigidbody2D>();
         Spriter = GetComponent<SpriteRenderer>();
+        Anim = GetComponent<Animator>();
     }
 
     // Start is called before the first frame update
@@ -28,6 +33,8 @@ public class Enemy : MonoBehaviour
     {
         // 씬에 활성화 시 타겟 지정
         Target = GameManager.Instance.MainPlayer.GetComponent<Rigidbody2D>();
+        HP = MaxHP;
+        IsLive = true;
     }
 
     private void FixedUpdate()
@@ -55,4 +62,15 @@ public class Enemy : MonoBehaviour
         // Enemy의 x위치가 Target의 x위치보다 작은 경우(Enemy가 왼쪽 Target이 오른쪽) false(오른쪽을 바라보게 반전X)
         Spriter.flipX = Target.position.x < Rigid.position.x ? true : false;
     }
+
+    #region CustomFunc
+    // Enemy Spawn시 Init 호출(호출하면서 스폰데이터로 초기화 작업)
+    public void Init(SpawnData Data)
+    {
+        Speed = Data.Speed;
+        MaxHP = Data.HP;
+        HP = Data.HP;
+        Anim.runtimeAnimatorController = AnimatorController[Data.Type];
+    }
+    #endregion
 }
