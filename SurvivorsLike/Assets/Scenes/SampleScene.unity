@@ -468,7 +468,7 @@ MonoBehaviour:
   Speed: 0
   ID: 0
   PrefabID: 1
-  Count: 3
+  Count: 1
 --- !u!1 &282182780
 GameObject:
   m_ObjectHideFlags: 0
@@ -9219,7 +9219,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 8.259259
+  orthographic size: 8.296296
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
