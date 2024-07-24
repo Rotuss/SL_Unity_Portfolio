@@ -63,6 +63,22 @@ public class Enemy : MonoBehaviour
         Spriter.flipX = Target.position.x < Rigid.position.x ? true : false;
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (false == collision.CompareTag("Bullet")) return;
+
+        HP -= collision.GetComponent<Bullet>().Damage;
+
+        if (0 < HP)
+        {
+            //
+        }
+        else
+        {
+            Dead();
+        }
+    }
+
     #region CustomFunc
     // Enemy Spawn시 Init 호출(호출하면서 스폰데이터로 초기화 작업)
     public void Init(SpawnData Data)
@@ -72,5 +88,11 @@ public class Enemy : MonoBehaviour
         HP = Data.HP;
         Anim.runtimeAnimatorController = AnimatorController[Data.Type];
     }
+
+    private void Dead()
+    {
+        gameObject.SetActive(false);
+    }
+
     #endregion
 }
