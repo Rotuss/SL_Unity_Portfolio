@@ -31,7 +31,7 @@ public class Bullet : MonoBehaviour
         if (false == collision.CompareTag("Enemy") || -1 == Per) return;
 
         --Per;
-        if(-1 == Per)
+        if(-1 >= Per || true == collision.CompareTag("Area"))
         {
             Rigid.velocity = Vector2.zero;
             gameObject.SetActive(false);
