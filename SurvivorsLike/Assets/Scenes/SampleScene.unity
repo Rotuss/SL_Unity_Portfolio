@@ -241,6 +241,7 @@ Transform:
   - {fileID: 993720102}
   - {fileID: 832842329}
   - {fileID: 167231932}
+  - {fileID: 278653182}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!70 &2877981
@@ -290,6 +291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57121295990c9c3479a359d9bb22f065, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Scan: {fileID: 0}
   InputVec: {x: 0, y: 0}
   Speed: 3
 --- !u!114 &2877983
@@ -477,7 +479,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 167231931}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33ebe8ff3d297bb44b3caa2cfc182f3a, type: 3}
   m_Name: 
@@ -487,6 +489,55 @@ MonoBehaviour:
   ID: 0
   PrefabID: 1
   Count: 1
+--- !u!1 &278653181
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 278653182}
+  - component: {fileID: 278653183}
+  m_Layer: 0
+  m_Name: Weapon 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &278653182
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 278653181}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2877980}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &278653183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 278653181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33ebe8ff3d297bb44b3caa2cfc182f3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 3
+  Speed: 0
+  ID: 1
+  PrefabID: 2
+  Count: 0
 --- !u!1 &282182780
 GameObject:
   m_ObjectHideFlags: 0
@@ -14170,6 +14221,7 @@ MonoBehaviour:
   Prefabs:
   - {fileID: 5137746051368331043, guid: b38ffbbe549c2184280946c67a8091a8, type: 3}
   - {fileID: 4913832403024253859, guid: 8a8353c9222c48a469a3b40cca3bc6b8, type: 3}
+  - {fileID: 1031523659881452790, guid: b5085d451a6c9974b8b137ae576f84fd, type: 3}
 --- !u!4 &1008082731
 Transform:
   m_ObjectHideFlags: 0

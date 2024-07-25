@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
+    public Scanner Scan;
     public Vector2 InputVec;
     public float Speed;
 
@@ -16,6 +17,7 @@ public class Player : MonoBehaviour
     {
         //Speed = 3.0f;
 
+        Scan = GetComponent<Scanner>();
         Rigid = GetComponent<Rigidbody2D>();
         Spriter = GetComponent<SpriteRenderer>();
         Anim = GetComponent<Animator>();
