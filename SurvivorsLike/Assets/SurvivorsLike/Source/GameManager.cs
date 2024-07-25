@@ -19,10 +19,17 @@ public class GameManager : MonoBehaviour
     public int Exp;
     public int Level;
     public int KillCount;
+    public int MaxHP = 100;
+    public int HP;
 
     void Awake()
     {
         Instance = this;
+    }
+
+    private void Start()
+    {
+        HP = MaxHP;
     }
 
     private void Update()

@@ -57,7 +57,12 @@ public class HUD : MonoBehaviour
                 break;
             }
             case InfoType.HP:
+            {
+                float CurHP = GameManager.Instance.HP;
+                float MaxHP = GameManager.Instance.MaxHP;
+                MySlider.value = CurHP / MaxHP;
                 break;
+            }
             default:
                 break;
         }
