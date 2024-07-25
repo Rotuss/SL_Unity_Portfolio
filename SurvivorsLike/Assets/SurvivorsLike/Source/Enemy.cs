@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
     Rigidbody2D Rigid;
     SpriteRenderer Spriter;
     Animator Anim;
+    WaitForFixedUpdate Wait;
 
     bool IsLive;
 
@@ -21,6 +22,7 @@ public class Enemy : MonoBehaviour
         Rigid = GetComponent<Rigidbody2D>();
         Spriter = GetComponent<SpriteRenderer>();
         Anim = GetComponent<Animator>();
+        Wait = new WaitForFixedUpdate();
     }
 
     // Start is called before the first frame update
@@ -39,7 +41,7 @@ public class Enemy : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (false == IsLive) return;
+        if (false == IsLive || true == Anim.GetCurrentAnimatorStateInfo(0).IsName("Hit")) return;
 
         // 방향 구하기
         Vector2 DirVec = Target.position - Rigid.position;
@@ -68,10 +70,12 @@ public class Enemy : MonoBehaviour
         if (false == collision.CompareTag("Bullet")) return;
 
         HP -= collision.GetComponent<Bullet>().Damage;
-
+        StartCoroutine(KnockBack());
+        
         if (0 < HP)
         {
-            //
+            // Animation
+            Anim.SetTrigger("Hit");
         }
         else
         {
@@ -87,6 +91,17 @@ public class Enemy : MonoBehaviour
         MaxHP = Data.HP;
         HP = Data.HP;
         Anim.runtimeAnimatorController = AnimatorController[Data.Type];
+    }
+
+    IEnumerator KnockBack()
+    {
+        // 다음 하나의 물리 프레임 딜레이(물리 업데이트가 끝날 때까지 대기)
+        // FixedUpdate 이동 로직 실행이 끝나면 KnockBack 실행 => 안정적으로 KnockBack 결과 얻기 위함
+        yield return Wait;
+
+        Vector3 PlayerPos = GameManager.Instance.MainPlayer.transform.position;
+        Vector3 HitDir = (transform.position - PlayerPos).normalized;
+        Rigid.AddForce(HitDir * 5, ForceMode2D.Impulse);
     }
 
     private void Dead()
