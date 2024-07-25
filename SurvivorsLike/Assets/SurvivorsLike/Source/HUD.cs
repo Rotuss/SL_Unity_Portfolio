@@ -43,8 +43,10 @@ public class HUD : MonoBehaviour
                 break;
             }
             case InfoType.Level:
+                MyText.text = string.Format("Lv.{0:F0}", GameManager.Instance.Level);
                 break;
             case InfoType.Kill:
+                MyText.text = string.Format("{0:F0}", GameManager.Instance.KillCount);
                 break;
             case InfoType.Time:
                 break;
