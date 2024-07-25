@@ -73,7 +73,7 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (false == collision.CompareTag("Bullet")) return;
+        if (false == collision.CompareTag("Bullet") || false == IsLive) return;
 
         HP -= collision.GetComponent<Bullet>().Damage;
         StartCoroutine(KnockBack());
@@ -90,7 +90,8 @@ public class Enemy : MonoBehaviour
             IsLive = false;
             Spriter.sortingOrder = 1;
             Anim.SetBool("Dead", true);
-            //Dead();
+            ++GameManager.Instance.KillCount;
+            GameManager.Instance.GetExp();
         }
     }
 

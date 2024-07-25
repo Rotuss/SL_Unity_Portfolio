@@ -5,10 +5,20 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    
+    [Header("Game Object")]
     public PoolManager Pool;
     public Player MainPlayer;
-    public const float MaxGameTime = 40.0f;
+
+    [Header("Game Control")]
     public float GameTime;
+    public const float MaxGameTime = 40.0f;
+    
+    [Header("Player Infomation")]
+    public int[] NextExp = { 10, 30, 50, 80, 120, 180, 250, 300, 380, 450, 600};
+    public int Exp;
+    public int Level;
+    public int KillCount;
 
     void Awake()
     {
@@ -22,4 +32,16 @@ public class GameManager : MonoBehaviour
         if(MaxGameTime < GameTime) GameTime = MaxGameTime;
     }
 
+    #region Custom
+    public void GetExp()
+    {
+        ++Exp;
+
+        if (NextExp[Level] <= Exp)
+        {
+            ++Level;
+            Exp = 0;
+        }
+    }
+    #endregion
 }

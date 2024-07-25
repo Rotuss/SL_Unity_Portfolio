@@ -425,6 +425,10 @@ MonoBehaviour:
   Pool: {fileID: 1008082730}
   MainPlayer: {fileID: 2877982}
   GameTime: 0
+  NextExp: 0a0000001e000000320000005000000078000000b4000000fa0000002c0100007c010000c201000058020000
+  Exp: 0
+  Level: 0
+  KillCount: 0
 --- !u!4 &96698200
 Transform:
   m_ObjectHideFlags: 0
@@ -479,7 +483,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 167231931}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33ebe8ff3d297bb44b3caa2cfc182f3a, type: 3}
   m_Name: 
