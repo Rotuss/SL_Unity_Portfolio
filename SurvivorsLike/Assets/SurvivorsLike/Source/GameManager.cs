@@ -11,8 +11,8 @@ public class GameManager : MonoBehaviour
     public Player MainPlayer;
 
     [Header("Game Control")]
+    public float MaxGameTime = 40.0f;
     public float GameTime;
-    public const float MaxGameTime = 40.0f;
     
     [Header("Player Infomation")]
     public int[] NextExp = { 10, 30, 50, 80, 120, 180, 250, 300, 380, 450, 600};

@@ -49,7 +49,13 @@ public class HUD : MonoBehaviour
                 MyText.text = string.Format("{0:F0}", GameManager.Instance.KillCount);
                 break;
             case InfoType.Time:
+            {
+                float RemainTime = GameManager.Instance.MaxGameTime - GameManager.Instance.GameTime;
+                int Minute = Mathf.FloorToInt(RemainTime / 60.0f);
+                int Second = Mathf.FloorToInt(RemainTime % 60.0f);
+                MyText.text = string.Format("{0:D2}:{1:D2}", Minute, Second);
                 break;
+            }
             case InfoType.HP:
                 break;
             default:
