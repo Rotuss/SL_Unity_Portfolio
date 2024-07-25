@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
 {
-    public enum InfoType { Exp, Level, Kill, Time, HP}
+    public enum InfoType { Exp, Level, Kill, Time, HP }
     public InfoType Type;
 
     Text MyText;
@@ -35,7 +36,12 @@ public class HUD : MonoBehaviour
         switch (Type)
         {
             case InfoType.Exp:
+            {
+                float CurExp = GameManager.Instance.Exp;
+                float MaxExp = GameManager.Instance.NextExp[GameManager.Instance.Level];
+                MySlider.value = CurExp / MaxExp;
                 break;
+            }
             case InfoType.Level:
                 break;
             case InfoType.Kill:
