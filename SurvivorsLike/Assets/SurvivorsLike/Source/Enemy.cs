@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     public float HP;
 
     Rigidbody2D Rigid;
+    Collider2D Col;
     SpriteRenderer Spriter;
     Animator Anim;
     WaitForFixedUpdate Wait;
@@ -20,6 +21,7 @@ public class Enemy : MonoBehaviour
     private void Awake()
     {
         Rigid = GetComponent<Rigidbody2D>();
+        Col = GetComponent<Collider2D>();
         Spriter = GetComponent<SpriteRenderer>();
         Anim = GetComponent<Animator>();
         Wait = new WaitForFixedUpdate();
@@ -36,7 +38,11 @@ public class Enemy : MonoBehaviour
         // ¾À¿¡ È°¼ºÈ­ ½Ã Å¸°Ù ÁöÁ¤
         Target = GameManager.Instance.MainPlayer.GetComponent<Rigidbody2D>();
         HP = MaxHP;
+        Rigid.simulated = true;
+        Col.enabled = true;
         IsLive = true;
+        Spriter.sortingOrder = 2;
+        Anim.SetBool("Dead", false);
     }
 
     private void FixedUpdate()
@@ -79,7 +85,12 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            Dead();
+            Rigid.simulated = false;
+            Col.enabled = false;
+            IsLive = false;
+            Spriter.sortingOrder = 1;
+            Anim.SetBool("Dead", true);
+            //Dead();
         }
     }
 
