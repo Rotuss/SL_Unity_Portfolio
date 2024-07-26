@@ -86,6 +86,11 @@ public class Weapon : MonoBehaviour
                 break;
         }
 
+        // 무기 장착 손 설정(근거리0, 원거리1)
+        Hand Hand = MainPlayer.Hands[(int)Data.Type];
+        Hand.Spriter.sprite = Data.Hand;
+        Hand.gameObject.SetActive(true);
+
         MainPlayer.BroadcastMessage("ApplyGear", SendMessageOptions.DontRequireReceiver);
     }
 

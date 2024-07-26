@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
+    public Hand[] Hands;
     public Scanner Scan;
     public Vector2 InputVec;
     public float DefaultSpeed;
@@ -18,6 +19,7 @@ public class Player : MonoBehaviour
     {
         Speed = DefaultSpeed;
 
+        Hands = GetComponentsInChildren<Hand>(true);
         Scan = GetComponent<Scanner>();
         Rigid = GetComponent<Rigidbody2D>();
         Spriter = GetComponent<SpriteRenderer>();
