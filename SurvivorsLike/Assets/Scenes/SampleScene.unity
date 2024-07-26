@@ -291,7 +291,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Scan: {fileID: 0}
   InputVec: {x: 0, y: 0}
-  Speed: 3
+  DefaultSpeed: 3
+  Speed: 0
 --- !u!114 &2877983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -446,6 +447,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Data: {fileID: 11400000, guid: 3cd1e35356f90a64a91a384ed09feadf, type: 2}
   Weapon: {fileID: 0}
+  Gear: {fileID: 0}
   Level: 0
 --- !u!114 &86136657
 MonoBehaviour:
@@ -5493,6 +5495,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Data: {fileID: 11400000, guid: 0c69abdd6e6aaa845b4c691c3e579fa3, type: 2}
   Weapon: {fileID: 0}
+  Gear: {fileID: 0}
   Level: 0
 --- !u!114 &475695441
 MonoBehaviour:
@@ -10197,6 +10200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Data: {fileID: 11400000, guid: c436566bfdeb4b348a7bf709180fb3b6, type: 2}
   Weapon: {fileID: 0}
+  Gear: {fileID: 0}
   Level: 0
 --- !u!114 &547323595
 MonoBehaviour:
@@ -15858,6 +15862,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Data: {fileID: 11400000, guid: 88be01dc7e616c54181e5f321818d85d, type: 2}
   Weapon: {fileID: 0}
+  Gear: {fileID: 0}
   Level: 0
 --- !u!114 &1183020332
 MonoBehaviour:
@@ -21119,6 +21124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Data: {fileID: 11400000, guid: 594938b416213db409786f92bbb2d197, type: 2}
   Weapon: {fileID: 0}
+  Gear: {fileID: 0}
   Level: 0
 --- !u!114 &1686576434
 MonoBehaviour:

@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 {
     public Scanner Scan;
     public Vector2 InputVec;
+    public float DefaultSpeed;
     public float Speed;
 
     Rigidbody2D Rigid;
@@ -15,7 +16,7 @@ public class Player : MonoBehaviour
 
     void Awake()
     {
-        //Speed = 3.0f;
+        Speed = DefaultSpeed;
 
         Scan = GetComponent<Scanner>();
         Rigid = GetComponent<Rigidbody2D>();

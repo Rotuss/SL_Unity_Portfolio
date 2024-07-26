@@ -85,6 +85,8 @@ public class Weapon : MonoBehaviour
             default:
                 break;
         }
+
+        MainPlayer.BroadcastMessage("ApplyGear", SendMessageOptions.DontRequireReceiver);
     }
 
     public void LevelUp(float InDamage, int InCount)
@@ -93,6 +95,7 @@ public class Weapon : MonoBehaviour
         Count += InCount;
 
         if (0 == ID) Batch();
+        MainPlayer.BroadcastMessage("ApplyGear", SendMessageOptions.DontRequireReceiver);
     }
 
     void Batch()

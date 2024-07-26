@@ -7,6 +7,7 @@ public class Item : MonoBehaviour
 {
     public ItemData Data;
     public Weapon   Weapon;
+    public Gear     Gear;
     public int      Level;
 
     Image Icon;
@@ -69,9 +70,22 @@ public class Item : MonoBehaviour
                 break;
             }
             case ItemData.ItemType.Glove:
-                break;
             case ItemData.ItemType.Shoe:
+            {
+                if (0 == Level)
+                {
+                    GameObject NewGear = new GameObject();
+                    Gear = NewGear.AddComponent<Gear>();
+                    Gear.Init(Data);
+                }
+                else
+                {
+                    float NextRate = Data.Damages[Level];
+
+                    Gear.LevelUp(NextRate);
+                }
                 break;
+            }
             case ItemData.ItemType.Heal:
                 break;
         }
