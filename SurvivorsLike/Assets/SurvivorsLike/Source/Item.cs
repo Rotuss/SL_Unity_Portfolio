@@ -45,7 +45,29 @@ public class Item : MonoBehaviour
         {
             case ItemData.ItemType.Melee:
             case ItemData.ItemType.Range:
+            {
+                // 무기 첫 생성
+                if(0 == Level)
+                {
+                    GameObject NewWeapon = new GameObject();
+                    Weapon = NewWeapon.AddComponent<Weapon>();
+                    Weapon.Init(Data);
+                }
+                // 무기 존재할 떄
+                else
+                {
+                    float NextDamage = Data.BaseDamage;
+                    int NextCount = 0;
+
+                    // 대미지 현재 레벨에 따른 비율로 추가
+                    NextDamage += Data.BaseDamage * Data.Damages[Level];
+                    // 레벨에 따른 카운트 수치 누적
+                    NextCount += Data.Counts[Level];
+
+                    Weapon.LevelUp(NextDamage, NextCount);
+                }
                 break;
+            }
             case ItemData.ItemType.Glove:
                 break;
             case ItemData.ItemType.Shoe:

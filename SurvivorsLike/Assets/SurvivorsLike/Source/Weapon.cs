@@ -16,13 +16,13 @@ public class Weapon : MonoBehaviour
 
     private void Awake()
     {
-        MainPlayer = GetComponentInParent<Player>();
+        MainPlayer = GameManager.Instance.MainPlayer;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        Init();
+        
     }
 
     // Update is called once per frame
@@ -46,13 +46,33 @@ public class Weapon : MonoBehaviour
         }
 
         // 레벨업 임시 테스트용
-        if (true == Input.GetButtonDown("Jump")) LevelUp(30);
+        if (true == Input.GetButtonDown("Jump")) LevelUp(30, 1);
     }
 
     #region Custom
-    // Init은 ID에 따라 다를 것
-    public void Init()
+    // Init은 받아오는 ItemData에 따라 다를 것
+    public void Init(ItemData Data)
     {
+        // 기본 세팅
+        name = "Weapon " + Data.ItemID;
+        transform.parent = MainPlayer.transform;
+        transform.localPosition = Vector3.zero;
+
+        // 프로퍼티 세팅
+        Damage = Data.BaseDamage;
+        ID = Data.ItemID;
+        Count = Data.BaseCount;
+
+        // Data의 Projectile과 맞는 프리팹 찾기
+        for(int i = 0; i < GameManager.Instance.Pool.Prefabs.Length; ++i)
+        {
+            if(Data.Projectile == GameManager.Instance.Pool.Prefabs[i])
+            {
+                PrefabID = i;
+                break;
+            }
+        }
+
         switch(ID)
         {
             case 0:
@@ -67,10 +87,10 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    public void LevelUp(float InDamage)
+    public void LevelUp(float InDamage, int InCount)
     {
         Damage = InDamage;
-        ++Count;
+        Count += InCount;
 
         if (0 == ID) Batch();
     }
