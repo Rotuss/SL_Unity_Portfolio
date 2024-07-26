@@ -67,6 +67,9 @@ public class Item : MonoBehaviour
 
                     Weapon.LevelUp(NextDamage, NextCount);
                 }
+
+                ++Level;
+
                 break;
             }
             case ItemData.ItemType.Glove:
@@ -84,13 +87,15 @@ public class Item : MonoBehaviour
 
                     Gear.LevelUp(NextRate);
                 }
+
+                ++Level;
+
                 break;
             }
             case ItemData.ItemType.Heal:
+                GameManager.Instance.HP = GameManager.Instance.MaxHP;
                 break;
         }
-
-        ++Level;
 
         if(Level == Data.Damages.Length) GetComponent<Button>().interactable = false;
     }
