@@ -15,7 +15,7 @@ MonoBehaviour:
   Type: 4
   ItemIcon: {fileID: 927338625, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
   ItemName: Drink
-  ItemDescription: 
+  ItemDescription: "\uC0DD\uBA85\uB825 \uC804\uCCB4 \uD68C\uBCF5"
   ItemID: 4
   Damages:
   - 0
@@ -27,3 +27,4 @@ MonoBehaviour:
   Counts: 0000000000000000000000000000000000000000
   BaseCount: 0
   Projectile: {fileID: 0}
+  Hand: {fileID: 0}

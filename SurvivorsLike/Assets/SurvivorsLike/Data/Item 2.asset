@@ -15,7 +15,7 @@ MonoBehaviour:
   Type: 2
   ItemIcon: {fileID: -201829820, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
   ItemName: Tech Glove
-  ItemDescription: 
+  ItemDescription: "\uC5F0\uC0AC\uC18D\uB3C4 {0}% \uC99D\uAC00"
   ItemID: 2
   Damages:
   - 0.1
@@ -27,3 +27,4 @@ MonoBehaviour:
   Counts: 0000000000000000000000000000000000000000
   BaseCount: 0
   Projectile: {fileID: 0}
+  Hand: {fileID: 0}

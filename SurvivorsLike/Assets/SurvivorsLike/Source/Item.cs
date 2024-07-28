@@ -12,6 +12,8 @@ public class Item : MonoBehaviour
 
     Image Icon;
     Text TextLevel;
+    Text TextName;
+    Text TextDescription;
 
     private void Awake()
     {
@@ -20,12 +22,36 @@ public class Item : MonoBehaviour
 
         Text[] Texts = GetComponentsInChildren<Text>();
         TextLevel = Texts[0];
+        TextName = Texts[1];
+        TextDescription = Texts[2];
+
+        TextName.text = Data.ItemName;
     }
 
     // Start is called before the first frame update
     void Start()
     {
         
+    }
+
+    private void OnEnable()
+    {
+        TextLevel.text = "Lv." + Mathf.Clamp(Level + 1, 1, Data.Damages.Length);
+
+        switch(Data.Type)
+        {
+            case ItemData.ItemType.Melee:
+            case ItemData.ItemType.Range:
+                TextDescription.text = string.Format(Data.ItemDescription, Data.Damages[Level] * 100, Data.Counts[Level]);
+                break;
+            case ItemData.ItemType.Glove:
+            case ItemData.ItemType.Shoe:
+                TextDescription.text = string.Format(Data.ItemDescription, Data.Damages[Level] * 100);
+                break;
+            default:
+                TextDescription.text = string.Format(Data.ItemDescription);
+                break;
+        }
     }
 
     // Update is called once per frame
@@ -36,7 +62,7 @@ public class Item : MonoBehaviour
 
     private void LateUpdate()
     {
-        TextLevel.text = "Lv." + Mathf.Clamp(Level + 1, 1, Data.Damages.Length);
+        //TextLevel.text = "Lv." + Mathf.Clamp(Level + 1, 1, Data.Damages.Length);
     }
 
     #region Custom
