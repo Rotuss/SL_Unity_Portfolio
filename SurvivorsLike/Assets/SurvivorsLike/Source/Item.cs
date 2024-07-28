@@ -60,11 +60,6 @@ public class Item : MonoBehaviour
         
     }
 
-    private void LateUpdate()
-    {
-        //TextLevel.text = "Lv." + Mathf.Clamp(Level + 1, 1, Data.Damages.Length);
-    }
-
     #region Custom
     public void Onclick()
     {

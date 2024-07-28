@@ -5,10 +5,12 @@ using UnityEngine;
 public class LevelUp : MonoBehaviour
 {
     RectTransform Rect;
+    Item[] Items;
 
     private void Awake()
     {
         Rect = GetComponent<RectTransform>();
+        Items = GetComponentsInChildren<Item>(true);
     }
 
     // Start is called before the first frame update
@@ -32,6 +34,11 @@ public class LevelUp : MonoBehaviour
     public void Hide()
     {
         Rect.localScale = Vector3.zero;
+    }
+
+    public void Select(int InItemID)
+    {
+        Items[InItemID].Onclick();
     }
     #endregion
 }

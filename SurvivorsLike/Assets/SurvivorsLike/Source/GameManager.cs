@@ -31,6 +31,9 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         HP = MaxHP;
+
+        // 임시 테스트용
+        UILevelUp.Select(0);
     }
 
     private void Update()
