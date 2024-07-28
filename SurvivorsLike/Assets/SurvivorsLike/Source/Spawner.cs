@@ -29,6 +29,8 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (true == GameManager.Instance.IsStop) return;
+
         Timer += Time.deltaTime;
         // 배열 범위 넘어서 처리 되지 않게 Min 사용
         Level = Mathf.Min(Mathf.FloorToInt(GameManager.Instance.GameTime / 10.0f), SpawnDataInfo.Length - 1);

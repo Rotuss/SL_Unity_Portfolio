@@ -28,6 +28,8 @@ public class Weapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (true == GameManager.Instance.IsStop) return;
+
         switch (ID)
         {
             case 0:

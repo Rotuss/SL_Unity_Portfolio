@@ -34,6 +34,8 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (true == GameManager.Instance.IsStop) return;
+
         Vector2 NextVec = InputVec * Speed * Time.fixedDeltaTime;
         Rigid.MovePosition(Rigid.position + NextVec);
     }
@@ -46,6 +48,8 @@ public class Player : MonoBehaviour
 
     void LateUpdate()
     {
+        if (true == GameManager.Instance.IsStop) return;
+
         Anim.SetFloat("Speed", InputVec.magnitude);
 
         if(0 != InputVec.x)
@@ -57,6 +61,8 @@ public class Player : MonoBehaviour
 
     void OnMove(InputValue value)
     {
+        if (true == GameManager.Instance.IsStop) return;
+
         InputVec = value.Get<Vector2>();
     }
 }

@@ -47,6 +47,7 @@ public class Enemy : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (true == GameManager.Instance.IsStop) return;
         if (false == IsLive || true == Anim.GetCurrentAnimatorStateInfo(0).IsName("Hit")) return;
 
         // 방향 구하기
@@ -64,6 +65,7 @@ public class Enemy : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (true == GameManager.Instance.IsStop) return;
         if (false == IsLive) return;
 
         // Enemy의 x위치가 Target의 x위치보다 큰 경우(Enemy가 오른쪽 Target이 왼쪽) true(왼쪽을 바라보게 반전O)
