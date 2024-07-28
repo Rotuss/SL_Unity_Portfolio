@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     [Header("Game Object")]
     public PoolManager Pool;
     public Player MainPlayer;
+    public LevelUp UILevelUp;
 
     [Header("Game Control")]
     public float MaxGameTime = 40.0f;
@@ -48,6 +49,8 @@ public class GameManager : MonoBehaviour
         {
             ++Level;
             Exp = 0;
+            
+            UILevelUp.Show();
         }
     }
     #endregion
