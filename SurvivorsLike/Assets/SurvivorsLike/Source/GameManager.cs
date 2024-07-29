@@ -27,14 +27,12 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         Instance = this;
+        IsStop = true;
     }
-
+    
     private void Start()
     {
-        HP = MaxHP;
-
-        // 임시 테스트용
-        UILevelUp.Select(0);
+        
     }
 
     private void Update()
@@ -47,6 +45,15 @@ public class GameManager : MonoBehaviour
     }
 
     #region Custom
+    public void GameStart()
+    {
+        IsStop = false;
+        HP = MaxHP;
+
+        // 임시 테스트용
+        UILevelUp.Select(0);
+    }
+
     public void GetExp()
     {
         ++Exp;
