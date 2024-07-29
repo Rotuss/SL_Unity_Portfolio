@@ -4,6 +4,7 @@ using System.Diagnostics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using static Cinemachine.DocumentationSortingAttribute;
 
 public class HUD : MonoBehaviour
 {
@@ -38,7 +39,7 @@ public class HUD : MonoBehaviour
             case InfoType.Exp:
             {
                 float CurExp = GameManager.Instance.Exp;
-                float MaxExp = GameManager.Instance.NextExp[GameManager.Instance.Level];
+                float MaxExp = GameManager.Instance.NextExp[Mathf.Min(GameManager.Instance.Level, GameManager.Instance.NextExp.Length - 1)];
                 MySlider.value = CurExp / MaxExp;
                 break;
             }
