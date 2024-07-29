@@ -21,8 +21,8 @@ public class GameManager : MonoBehaviour
     public int Exp;
     public int Level;
     public int KillCount;
-    public int MaxHP = 100;
-    public int HP;
+    public float MaxHP = 100;
+    public float HP;
 
     void Awake()
     {

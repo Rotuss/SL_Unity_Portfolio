@@ -65,4 +65,22 @@ public class Player : MonoBehaviour
 
         InputVec = value.Get<Vector2>();
     }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (true == GameManager.Instance.IsStop) return;
+
+        GameManager.Instance.HP -= Time.deltaTime * 10;
+
+        if(0 > GameManager.Instance.HP)
+        {
+            // Shadow, Area 제외한 나머지 자식 컴포넌트
+            for(int i = 2; i < transform.childCount; ++i)
+            {
+                transform.GetChild(i).gameObject.SetActive(false);
+            }
+
+            Anim.SetTrigger("Dead");
+        }
+    }
 }
