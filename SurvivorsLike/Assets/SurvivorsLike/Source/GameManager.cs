@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class GameManager : MonoBehaviour
     public PoolManager Pool;
     public Player MainPlayer;
     public LevelUp UILevelUp;
+    public GameObject UIResult;
 
     [Header("Game Control")]
     public float MaxGameTime = 40.0f;
@@ -52,6 +54,26 @@ public class GameManager : MonoBehaviour
 
         // 임시 테스트용
         UILevelUp.Select(0);
+    }
+
+    public void GameOver()
+    {
+        StartCoroutine(GameOverRoutine());
+    }
+
+    IEnumerator GameOverRoutine()
+    {
+        IsStop = true;
+        
+        yield return new WaitForSeconds(0.5f);
+
+        UIResult.SetActive(true);
+        Stop();
+    }
+
+    public void GameRetry()
+    {
+        SceneManager.LoadScene(0);
     }
 
     public void GetExp()

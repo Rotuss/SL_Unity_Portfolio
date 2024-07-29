@@ -81,6 +81,7 @@ public class Player : MonoBehaviour
             }
 
             Anim.SetTrigger("Dead");
+            GameManager.Instance.GameOver();
         }
     }
 }
