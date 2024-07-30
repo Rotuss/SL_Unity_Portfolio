@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
         HP = MaxHP;
 
         MainPlayer.gameObject.SetActive(true);
-        UILevelUp.Select(PlayerID);
+        UILevelUp.Select(PlayerID % 2);
         Resume();
     }
 
