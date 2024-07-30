@@ -47,19 +47,20 @@ public class Hand : MonoBehaviour
             transform.localPosition = true == IsRev ? RightPosRev : RightPos;
             Spriter.flipX = IsRev;
             // 공격 방향으로 회전
-            if(null != Player.GetComponent<Player>().Scan.NearestTarget)
-            {
-                Vector3 TargetPos = Player.GetComponent<Player>().Scan.NearestTarget.position;
-                Vector3 Dir = TargetPos - transform.position;
-                transform.localRotation = Quaternion.FromToRotation(Vector3.right, Dir);
+            //if(null != Player.GetComponent<Player>().Scan.NearestTarget)
+            //{
+            //    Vector3 TargetPos = Player.GetComponent<Player>().Scan.NearestTarget.position;
+            //    Vector3 Dir = TargetPos - transform.position;
+            //    transform.localRotation = Quaternion.FromToRotation(Vector3.right, Dir);
 
-                // 각도에 따른 스프라이트 뒤집기
-                bool IsRotA = 90 < transform.localRotation.eulerAngles.z && 270 > transform.localRotation.eulerAngles.z;
-                bool IsRotB = -90 > transform.localRotation.eulerAngles.z && -270 < transform.localRotation.eulerAngles.z;
-                Spriter.flipY = IsRotA || IsRotB;
-                Spriter.sortingOrder = 6;
-            }
-            else Spriter.sortingOrder = true == IsRev ? 6 : 4;
+            //    // 각도에 따른 스프라이트 뒤집기
+            //    bool IsRotA = 90 < transform.localRotation.eulerAngles.z && 270 > transform.localRotation.eulerAngles.z;
+            //    bool IsRotB = -90 > transform.localRotation.eulerAngles.z && -270 < transform.localRotation.eulerAngles.z;
+            //    Spriter.flipY = IsRotA || IsRotB;
+            //    Spriter.sortingOrder = 6;
+            //}
+            //else Spriter.sortingOrder = true == IsRev ? 6 : 4;
+            Spriter.sortingOrder = true == IsRev ? 6 : 4;
         }
     }
 }
