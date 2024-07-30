@@ -7,13 +7,16 @@ public class AchiveManager : MonoBehaviour
 {
     public GameObject[] LockCharacters;
     public GameObject[] UnlockCharacters;
+    public GameObject   UINotice;
 
     enum Achive { UnlockBarley, UnlockPotato }
     Achive[] Achives;
+    WaitForSecondsRealtime Wait;
 
     private void Awake()
     {
         Achives = (Achive[])Enum.GetValues(typeof(Achive));
+        Wait = new WaitForSecondsRealtime(5.0f);
 
         if (false == PlayerPrefs.HasKey("AchiveData")) Init();
     }
@@ -66,7 +69,10 @@ public class AchiveManager : MonoBehaviour
         switch(InAchive)
         {
             case Achive.UnlockBarley:
-                IsAchive = 10 <= GameManager.Instance.KillCount;
+                if (false == GameManager.Instance.IsStop)
+                {
+                    IsAchive = 10 <= GameManager.Instance.KillCount;
+                }
                 break;
             case Achive.UnlockPotato:
                 IsAchive = GameManager.Instance.MaxGameTime <= GameManager.Instance.GameTime;
@@ -78,7 +84,25 @@ public class AchiveManager : MonoBehaviour
         {
             // 해금
             PlayerPrefs.SetInt(InAchive.ToString(), 1);
+
+            // 해금 알림
+            for(int i = 0; i < UINotice.transform.childCount; ++i)
+            {
+                bool IsActive = i == (int)InAchive;
+                UINotice.transform.GetChild(i).gameObject.SetActive(IsActive);
+            }
+            //UINotice.transform.GetChild((int)InAchive).gameObject.SetActive(IsAchive);
+            StartCoroutine(NoticeRoutine());
         }
+    }
+
+    IEnumerator NoticeRoutine()
+    {
+        UINotice.SetActive(true);
+
+        yield return Wait;
+
+        UINotice.SetActive(false);
     }
     #endregion
 }
