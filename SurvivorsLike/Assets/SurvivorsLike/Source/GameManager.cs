@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     public int Exp;
     public int Level;
     public int KillCount;
+    public int PlayerID;
     public float MaxHP = 100;
     public float HP;
 
@@ -52,12 +53,13 @@ public class GameManager : MonoBehaviour
     }
 
     #region Custom
-    public void GameStart()
+    public void GameStart(int InID)
     {
+        PlayerID = InID;
         HP = MaxHP;
 
-        // 임시 테스트용
-        UILevelUp.Select(0);
+        MainPlayer.gameObject.SetActive(true);
+        UILevelUp.Select(PlayerID);
         Resume();
     }
 

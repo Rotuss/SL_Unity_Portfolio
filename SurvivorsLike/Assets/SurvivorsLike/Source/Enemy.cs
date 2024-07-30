@@ -115,7 +115,7 @@ public class Enemy : MonoBehaviour
 
         Vector3 PlayerPos = GameManager.Instance.MainPlayer.transform.position;
         Vector3 HitDir = (transform.position - PlayerPos).normalized;
-        Rigid.AddForce(HitDir * 5, ForceMode2D.Impulse);
+        Rigid.AddForce(HitDir * 3, ForceMode2D.Impulse);
     }
 
     private void Dead()

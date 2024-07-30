@@ -61,9 +61,9 @@ public class Weapon : MonoBehaviour
         transform.localPosition = Vector3.zero;
 
         // 프로퍼티 세팅
-        Damage = Data.BaseDamage;
+        Damage = Data.BaseDamage * Passive.Damage;
         ID = Data.ItemID;
-        Count = Data.BaseCount;
+        Count = Data.BaseCount + Passive.Count;
 
         // Data의 Projectile과 맞는 프리팹 찾기
         for(int i = 0; i < GameManager.Instance.Pool.Prefabs.Length; ++i)
@@ -78,11 +78,11 @@ public class Weapon : MonoBehaviour
         switch(ID)
         {
             case 0:
-                Speed = -150.0f;
+                Speed = -150.0f * Passive.WeaponSpeed;
                 Batch();
                 break;
             case 1:
-                Speed = 0.5f;
+                Speed = 0.5f * Passive.WeaponRate;
                 break;
             default:
                 break;
@@ -98,7 +98,7 @@ public class Weapon : MonoBehaviour
 
     public void LevelUp(float InDamage, int InCount)
     {
-        Damage = InDamage;
+        Damage = InDamage * Passive.Damage;
         Count += InCount;
 
         if (0 == ID) Batch();

@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
+    public RuntimeAnimatorController[] AnimControllers;
     public Hand[] Hands;
     public Scanner Scan;
     public Vector2 InputVec;
@@ -30,6 +31,12 @@ public class Player : MonoBehaviour
     void Start()
     {
         
+    }
+
+    private void OnEnable()
+    {
+        Speed *= Passive.Speed;
+        Anim.runtimeAnimatorController = AnimControllers[GameManager.Instance.PlayerID];
     }
 
     void FixedUpdate()
