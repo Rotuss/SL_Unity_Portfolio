@@ -11,7 +11,8 @@ public class GameManager : MonoBehaviour
     public PoolManager Pool;
     public Player MainPlayer;
     public LevelUp UILevelUp;
-    public GameObject UIResult;
+    public Result UIResult;
+    public GameObject EnemyCleaner;
 
     [Header("Game Control")]
     public float MaxGameTime = 40.0f;
@@ -43,17 +44,21 @@ public class GameManager : MonoBehaviour
 
         GameTime += Time.deltaTime;
 
-        if(MaxGameTime < GameTime) GameTime = MaxGameTime;
+        if (MaxGameTime < GameTime)
+        {
+            GameTime = MaxGameTime;
+            GameClear();
+        }
     }
 
     #region Custom
     public void GameStart()
     {
-        IsStop = false;
         HP = MaxHP;
 
         // 임시 테스트용
         UILevelUp.Select(0);
+        Resume();
     }
 
     public void GameOver()
@@ -67,7 +72,25 @@ public class GameManager : MonoBehaviour
         
         yield return new WaitForSeconds(0.5f);
 
-        UIResult.SetActive(true);
+        UIResult.gameObject.SetActive(true);
+        UIResult.Over();
+        Stop();
+    }
+
+    public void GameClear()
+    {
+        StartCoroutine(GameClearRoutine());
+    }
+
+    IEnumerator GameClearRoutine()
+    {
+        IsStop = true;
+        EnemyCleaner.SetActive(true);
+
+        yield return new WaitForSeconds(0.5f);
+
+        UIResult.gameObject.SetActive(true);
+        UIResult.Clear();
         Stop();
     }
 
@@ -78,6 +101,8 @@ public class GameManager : MonoBehaviour
 
     public void GetExp()
     {
+        if (true == IsStop) return;
+
         ++Exp;
 
         if (NextExp[Mathf.Min(Level, NextExp.Length - 1)] <= Exp)
