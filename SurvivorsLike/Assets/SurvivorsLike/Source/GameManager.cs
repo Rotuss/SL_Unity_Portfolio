@@ -111,6 +111,11 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    public void GameQuit()
+    {
+        Application.Quit();
+    }
+
     public void GetExp()
     {
         if (true == IsStop) return;
