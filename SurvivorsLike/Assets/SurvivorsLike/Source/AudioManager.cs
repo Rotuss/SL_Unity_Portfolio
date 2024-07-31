@@ -10,6 +10,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip    BGMClip;
     public float        BGMVolume;
     AudioSource         BGMPlayer;
+    AudioHighPassFilter BGMEffect;
 
     [Header("SFX")]
     public AudioClip[]  SFXClips;
@@ -50,6 +51,7 @@ public class AudioManager : MonoBehaviour
         BGMPlayer.loop = true;
         BGMPlayer.volume = BGMVolume;
         BGMPlayer.clip = BGMClip;
+        BGMEffect = Camera.main.GetComponent<AudioHighPassFilter>();
 
         // SFX Player Init
         GameObject SFXObject = new GameObject("SFXPlayer");
@@ -59,8 +61,20 @@ public class AudioManager : MonoBehaviour
         {
             SFXPlayers[i] = SFXObject.AddComponent<AudioSource>();
             SFXPlayers[i].playOnAwake = false;
+            SFXPlayers[i].bypassListenerEffects = true;
             SFXPlayers[i].volume = SFXVolume;
         }
+    }
+
+    public void PlayBGM(bool IsPlay)
+    {
+        if(true == IsPlay) BGMPlayer.Play();
+        else BGMPlayer.Stop();
+    }
+
+    public void EffectBGM(bool IsPlay)
+    {
+        BGMEffect.enabled = IsPlay;
     }
 
     public void PlaySFX(ESFX InSFX)

@@ -36,6 +36,7 @@ public class LevelUp : MonoBehaviour
         GameManager.Instance.Stop();
         
         AudioManager.Instance.PlaySFX(AudioManager.ESFX.LevelUp);
+        AudioManager.Instance.EffectBGM(true);
     }
 
     public void Hide()
@@ -44,6 +45,7 @@ public class LevelUp : MonoBehaviour
         GameManager.Instance.Resume();
 
         AudioManager.Instance.PlaySFX(AudioManager.ESFX.Select);
+        AudioManager.Instance.EffectBGM(false);
     }
 
     public void Select(int InItemID)
