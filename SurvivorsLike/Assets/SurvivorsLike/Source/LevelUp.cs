@@ -34,12 +34,16 @@ public class LevelUp : MonoBehaviour
 
         Rect.localScale = Vector3.one;
         GameManager.Instance.Stop();
+        
+        AudioManager.Instance.PlaySFX(AudioManager.ESFX.LevelUp);
     }
 
     public void Hide()
     {
         Rect.localScale = Vector3.zero;
         GameManager.Instance.Resume();
+
+        AudioManager.Instance.PlaySFX(AudioManager.ESFX.Select);
     }
 
     public void Select(int InItemID)

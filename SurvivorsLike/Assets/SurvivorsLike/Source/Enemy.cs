@@ -84,6 +84,8 @@ public class Enemy : MonoBehaviour
         {
             // Animation
             Anim.SetTrigger("Hit");
+
+            AudioManager.Instance.PlaySFX(AudioManager.ESFX.Hit);
         }
         else
         {
@@ -94,6 +96,8 @@ public class Enemy : MonoBehaviour
             Anim.SetBool("Dead", true);
             ++GameManager.Instance.KillCount;
             GameManager.Instance.GetExp();
+
+            if (false == GameManager.Instance.IsStop) AudioManager.Instance.PlaySFX(AudioManager.ESFX.Dead);
         }
     }
 

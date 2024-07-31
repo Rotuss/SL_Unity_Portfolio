@@ -61,6 +61,8 @@ public class GameManager : MonoBehaviour
         MainPlayer.gameObject.SetActive(true);
         UILevelUp.Select(PlayerID % 2);
         Resume();
+
+        AudioManager.Instance.PlaySFX(AudioManager.ESFX.Select);
     }
 
     public void GameOver()
@@ -77,6 +79,8 @@ public class GameManager : MonoBehaviour
         UIResult.gameObject.SetActive(true);
         UIResult.Over();
         Stop();
+
+        AudioManager.Instance.PlaySFX(AudioManager.ESFX.Lose);
     }
 
     public void GameClear()
@@ -94,6 +98,8 @@ public class GameManager : MonoBehaviour
         UIResult.gameObject.SetActive(true);
         UIResult.Clear();
         Stop();
+
+        AudioManager.Instance.PlaySFX(AudioManager.ESFX.Win);
     }
 
     public void GameRetry()
