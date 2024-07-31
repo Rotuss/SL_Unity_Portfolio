@@ -685,7 +685,7 @@ MonoBehaviour:
   UILevelUp: {fileID: 1790251189}
   UIResult: {fileID: 2123680238}
   EnemyCleaner: {fileID: 1178270653}
-  MaxGameTime: 40
+  MaxGameTime: 300
   GameTime: 0
   IsStop: 0
   NextExp: 0a0000001e000000320000005000000078000000b4000000fa0000002c0100007c010000c201000058020000
@@ -10818,7 +10818,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 8.296296
+  orthographic size: 8.166667
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -16112,23 +16112,24 @@ MonoBehaviour:
   - SpawnTime: 1
     Speed: 1.5
     Type: 0
-    HP: 10
+    HP: 5
   - SpawnTime: 0.8
     Speed: 2
     Type: 1
-    HP: 15
+    HP: 10
   - SpawnTime: 0.6
     Speed: 2.5
     Type: 2
-    HP: 20
+    HP: 15
   - SpawnTime: 0.4
     Speed: 3
     Type: 3
-    HP: 25
+    HP: 20
   - SpawnTime: 0.2
     Speed: 3.5
     Type: 4
     HP: 30
+  LevelTime: 0
 --- !u!1 &833585649
 GameObject:
   m_ObjectHideFlags: 0
@@ -18080,7 +18081,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 10000000
-  Per: -1
+  Per: -100
 --- !u!61 &1178270655
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -26599,9 +26600,9 @@ SceneRoots:
   - {fileID: 96698200}
   - {fileID: 1008082731}
   - {fileID: 1204456013}
+  - {fileID: 178064136}
   - {fileID: 2877980}
   - {fileID: 1881173658}
   - {fileID: 1801317748}
   - {fileID: 1201218849}
   - {fileID: 1178270656}
-  - {fileID: 178064136}

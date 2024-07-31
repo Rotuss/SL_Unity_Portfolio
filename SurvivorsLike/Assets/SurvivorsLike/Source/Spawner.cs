@@ -10,6 +10,7 @@ public class Spawner : MonoBehaviour
     public Transform[] SpawnPoint;
     // 스폰정보들을 관리하는 SpawnData 배열
     public SpawnData[] SpawnDataInfo;
+    public float LevelTime;
 
     float Timer;
     int Level;
@@ -18,6 +19,7 @@ public class Spawner : MonoBehaviour
     {
         // GetComponentsInChildren는 자기 자신도 포함, 트랜스폼은 항상 포함되어 있기 때문
         SpawnPoint = GetComponentsInChildren<Transform>();
+        LevelTime = (GameManager.Instance.MaxGameTime / SpawnDataInfo.Length) / 2;      // 일단 30초 단위로 스폰레벨업
     }
 
     // Start is called before the first frame update
@@ -33,7 +35,7 @@ public class Spawner : MonoBehaviour
 
         Timer += Time.deltaTime;
         // 배열 범위 넘어서 처리 되지 않게 Min 사용
-        Level = Mathf.Min(Mathf.FloorToInt(GameManager.Instance.GameTime / 10.0f), SpawnDataInfo.Length - 1);
+        Level = Mathf.Min(Mathf.FloorToInt(GameManager.Instance.GameTime / LevelTime), SpawnDataInfo.Length - 1);
 
         // 현재 레벨에 맞춰 SpawnDataInfo의 Level에 따른 스폰 타임에 따라 Enemy Spawn
         if (SpawnDataInfo[Level].SpawnTime < Timer)
@@ -51,7 +53,7 @@ public class Spawner : MonoBehaviour
         // 가져온 Enemy Object 위치 지정
         EnemyObj.transform.position = SpawnPoint[UnityEngine.Random.Range(1, SpawnPoint.Length)].position;
         // 가져온 Enemy Object를 어떤 속도, 체력, 타입으로 할 것인지 SpawnDataInfo의 레벨에 따라 지정
-        EnemyObj.GetComponent<Enemy>().Init(SpawnDataInfo[Level]);
+        EnemyObj.GetComponent<Enemy>().Init(SpawnDataInfo[UnityEngine.Random.Range(0, Level + 1)]);
 
     }
 }
