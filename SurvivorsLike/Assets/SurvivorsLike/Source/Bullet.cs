@@ -28,14 +28,24 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (false == collision.CompareTag("Enemy") || -1 == Per) return;
+        // Collision된 Tag가 Enemy가 아니거나 현재 무기가 근거리 무기면 무시
+        if (false == collision.CompareTag("Enemy") || -100 == Per) return;
 
         --Per;
-        if(-1 >= Per || true == collision.CompareTag("Area"))
+        if(0 > Per)
         {
             Rigid.velocity = Vector2.zero;
             gameObject.SetActive(false);
         }
+    }
+
+    // 투사체가 Area를 벗어나면 비활성화 작업
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        // Collision된 Tag가 Area가 아니거나 현재 무기가 근거리 무기면 무시
+        if (false == collision.CompareTag("Area") || -100 == Per) return;
+
+        gameObject.SetActive(false);
     }
 
     #region Custom
@@ -44,8 +54,8 @@ public class Bullet : MonoBehaviour
         Damage = InDamage;
         Per = InPer;
 
-        // 관통시
-        if(-1 < InPer)
+        // 관통시, 원거리 무기의 경우
+        if(0 <= InPer)
         {
             Rigid.velocity = InDir * 15.0f;
         }

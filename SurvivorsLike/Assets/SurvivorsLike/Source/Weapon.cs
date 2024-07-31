@@ -119,7 +119,7 @@ public class Weapon : MonoBehaviour
             Bullet.localRotation = Quaternion.identity;                         // 로컬 로테이션 초기화
             Bullet.Rotate(RotVec);                                              // 개수에 맞춰 회전
             Bullet.Translate(Bullet.up * 1.5f, Space.World);                    // 위치
-            Bullet.GetComponent<Bullet>().Init(Damage, -1, Vector3.zero);       // -1: 무한 관통, 근접 공격
+            Bullet.GetComponent<Bullet>().Init(Damage, -100, Vector3.zero);     // -100: 무한 관통, 근접 공격
             
         }
     }
