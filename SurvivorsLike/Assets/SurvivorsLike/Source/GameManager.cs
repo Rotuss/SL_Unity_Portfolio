@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public Player MainPlayer;
     public LevelUp UILevelUp;
     public Result UIResult;
+    public Transform UIJoyStick;
     public GameObject EnemyCleaner;
 
     [Header("Game Control")]
@@ -129,12 +130,16 @@ public class GameManager : MonoBehaviour
     {
         IsStop = true;
         Time.timeScale = 0.0f;
+
+        UIJoyStick.localScale = Vector3.zero;
     }
 
     public void Resume()
     {
         IsStop = false;
         Time.timeScale = 1.0f;
+    
+        UIJoyStick.localScale = Vector3.one;
     }
     #endregion
 }
