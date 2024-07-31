@@ -33,6 +33,9 @@ public class GameManager : MonoBehaviour
     {
         Instance = this;
         IsStop = true;
+
+        // 프레임 지정(설정 안 하면 기본 30프레임 설정)
+        Application.targetFrameRate = 60;
     }
     
     private void Start()
