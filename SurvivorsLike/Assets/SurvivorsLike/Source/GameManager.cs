@@ -139,6 +139,7 @@ public class GameManager : MonoBehaviour
         IsStop = true;
         Time.timeScale = 0.0f;
 
+        MainPlayer.InputVec = Vector2.zero;
         UIJoyStick.localScale = Vector3.zero;
     }
 
