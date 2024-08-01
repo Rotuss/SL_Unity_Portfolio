@@ -69,6 +69,7 @@ public class Gear : MonoBehaviour
                         break;
                     }
                 case 1:
+                case 2:
                     {
                         float Speed = 0.5f * Passive.WeaponRate;
                         Weapon.Speed = Speed * (1.0f - Rate);

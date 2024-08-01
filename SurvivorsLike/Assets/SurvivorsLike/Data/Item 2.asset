@@ -12,19 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9e56981adae84c4c97cfc1dedc5e631, type: 3}
   m_Name: Item 2
   m_EditorClassIdentifier: 
-  Type: 2
-  ItemIcon: {fileID: -201829820, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
-  ItemName: Tech Glove
-  ItemDescription: "\uC5F0\uC0AC\uC18D\uB3C4 {0}% \uC99D\uAC00"
-  ItemID: 2
+  Type: 1
+  ItemIcon: {fileID: -205726582, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
+  ItemName: Shotgun
+  ItemDescription: "\uB300\uBBF8\uC9C0 {0}% \uC99D\uAC00\n\uAD00\uD1B5\uB825 {1}\uD68C
+    \uCD94\uAC00"
+  ItemID: 1
   Damages:
-  - 0.1
-  - 0.2
-  - 0.35
+  - 0.25
   - 0.5
-  - 0.8
-  BaseDamage: 0
-  Counts: 0000000000000000000000000000000000000000
+  - 1
+  - 1.5
+  - 2
+  BaseDamage: 2
+  Counts: 0100000001000000020000000200000003000000
   BaseCount: 0
-  Projectile: {fileID: 0}
-  Hand: {fileID: 0}
+  Projectile: {fileID: 1031523659881452790, guid: b5085d451a6c9974b8b137ae576f84fd, type: 3}
+  Hand: {fileID: -353751291, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}

@@ -49,7 +49,7 @@ public class Bullet : MonoBehaviour
     }
 
     #region Custom
-    public void Init(float InDamage, int InPer, Vector3 InDir)
+    public void Init(float InDamage, int InPer, Vector3 InDir, int InType)
     {
         Damage = InDamage;
         Per = InPer;
@@ -57,7 +57,8 @@ public class Bullet : MonoBehaviour
         // 관통시, 원거리 무기의 경우
         if(0 <= InPer)
         {
-            Rigid.velocity = InDir * 15.0f;
+            if(1 == InType) Rigid.velocity = InDir * 15.0f;
+            else if(2 == InType) Rigid.AddForce(InDir * 8.0f, ForceMode2D.Impulse);
         }
     }
     #endregion

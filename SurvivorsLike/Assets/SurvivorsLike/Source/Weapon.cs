@@ -43,6 +43,14 @@ public class Weapon : MonoBehaviour
                     Fire();
                 }
                 break;
+            case 2:
+                Timer += Time.deltaTime;
+                if (Speed < Timer)
+                {
+                    Timer = 0.0f;
+                    Throw();
+                }
+                break;
             default:
                 break;
         }
@@ -84,6 +92,9 @@ public class Weapon : MonoBehaviour
             case 1:
                 Speed = 0.5f * Passive.WeaponRate;
                 break;
+            case 2:
+                Speed = 1.0f * Passive.WeaponRate;
+                break;
             default:
                 break;
         }
@@ -119,7 +130,7 @@ public class Weapon : MonoBehaviour
             Bullet.localRotation = Quaternion.identity;                         // 로컬 로테이션 초기화
             Bullet.Rotate(RotVec);                                              // 개수에 맞춰 회전
             Bullet.Translate(Bullet.up * 1.5f, Space.World);                    // 위치
-            Bullet.GetComponent<Bullet>().Init(Damage, -100, Vector3.zero);     // -100: 무한 관통, 근접 공격
+            Bullet.GetComponent<Bullet>().Init(Damage, -100, Vector3.zero, ID);     // -100: 무한 관통, 근접 공격
             
         }
     }
@@ -135,9 +146,22 @@ public class Weapon : MonoBehaviour
         Transform Bullet = GameManager.Instance.Pool.Get(PrefabID).transform;
         Bullet.position = transform.position;                                   // 위치
         Bullet.rotation = Quaternion.FromToRotation(Vector3.up, TargetDir);     // 회전
-        Bullet.GetComponent<Bullet>().Init(Damage, Count, TargetDir);
+        Bullet.GetComponent<Bullet>().Init(Damage, Count, TargetDir, ID);
 
         AudioManager.Instance.PlaySFX(AudioManager.ESFX.Range);
+    }
+
+    void Throw()
+    {
+        float PlayerDirX = 0 == MainPlayer.InputVec.x ? Random.Range(-0.3f, 0.3f) : MainPlayer.InputVec.x * 0.5f;
+        Vector3 Dir = Vector3.right * PlayerDirX;
+        Vector3 RotVec = Vector3.forward * Random.Range(-20.0f, 20.0f);
+
+        Transform Bullet = GameManager.Instance.Pool.Get(PrefabID).transform;
+        Bullet.position = transform.position;                                   // 위치
+        Bullet.GetComponent<Bullet>().Init(Damage, Count, Vector3.up + Dir, ID);
+        Bullet.Rotate(RotVec);
+        AudioManager.Instance.PlaySFX(AudioManager.ESFX.Melee);
     }
     #endregion
 }

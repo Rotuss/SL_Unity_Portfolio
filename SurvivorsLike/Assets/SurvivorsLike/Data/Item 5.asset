@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9e56981adae84c4c97cfc1dedc5e631, type: 3}
-  m_Name: Item 3
+  m_Name: Item 5
   m_EditorClassIdentifier: 
-  Type: 2
-  ItemIcon: {fileID: -201829820, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
-  ItemName: Tech Glove
-  ItemDescription: "\uC5F0\uC0AC\uC18D\uB3C4 {0}% \uC99D\uAC00"
-  ItemID: 3
+  Type: 4
+  ItemIcon: {fileID: 927338625, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
+  ItemName: Drink
+  ItemDescription: "\uC0DD\uBA85\uB825 \uC804\uCCB4 \uD68C\uBCF5"
+  ItemID: 5
   Damages:
-  - 0.1
-  - 0.2
-  - 0.35
-  - 0.5
-  - 0.8
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   BaseDamage: 0
   Counts: 0000000000000000000000000000000000000000
   BaseCount: 0
