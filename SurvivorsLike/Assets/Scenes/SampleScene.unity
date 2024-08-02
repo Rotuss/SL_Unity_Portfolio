@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 2877985}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10902,7 +10902,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 8.166667
+  orthographic size: 8.296296
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -17703,6 +17703,7 @@ MonoBehaviour:
   - {fileID: 4913832403024253859, guid: 8a8353c9222c48a469a3b40cca3bc6b8, type: 3}
   - {fileID: 1031523659881452790, guid: b5085d451a6c9974b8b137ae576f84fd, type: 3}
   - {fileID: 1031523659881452790, guid: 5bd3bc6091267ff4d8d3288f6739c6d5, type: 3}
+  - {fileID: 5137746051368331043, guid: ba15507d64f300445ad2e24e91ace654, type: 3}
 --- !u!4 &1008082731
 Transform:
   m_ObjectHideFlags: 0

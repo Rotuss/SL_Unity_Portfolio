@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Cinemachine.DocumentationSortingAttribute;
 
 public class Enemy : MonoBehaviour
 {
@@ -95,7 +96,7 @@ public class Enemy : MonoBehaviour
             Spriter.sortingOrder = 1;
             Anim.SetBool("Dead", true);
             ++GameManager.Instance.KillCount;
-            GameManager.Instance.GetExp();
+            GameManager.Instance.GetExp(1);
 
             if (false == GameManager.Instance.IsStop) AudioManager.Instance.PlaySFX(AudioManager.ESFX.Dead);
         }
@@ -125,6 +126,11 @@ public class Enemy : MonoBehaviour
     private void Dead()
     {
         gameObject.SetActive(false);
+
+        // 경험치 코인
+        GameObject CoinObj = GameManager.Instance.Pool.Get(4);
+        CoinObj.transform.position = transform.position;
+        CoinObj.GetComponent<Coin>().Init(Random.Range(0, (GameManager.Instance.Level + 1) % 3));
     }
 
     #endregion

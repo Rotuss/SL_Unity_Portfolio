@@ -119,11 +119,11 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
 
-    public void GetExp()
+    public void GetExp(int InExp)
     {
         if (true == IsStop) return;
 
-        ++Exp;
+        Exp += InExp;
 
         if (NextExp[Mathf.Min(Level, NextExp.Length - 1)] <= Exp)
         {
