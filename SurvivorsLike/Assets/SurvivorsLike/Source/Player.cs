@@ -50,7 +50,12 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        // 마그넷 테스트용
+        if (true == Input.GetButtonDown("Jump"))
+        {
+            GameObject CoinObj = GameManager.Instance.Pool.Get(5);
+            CoinObj.transform.position = GameManager.Instance.MainPlayer.transform.position + (Vector3.right * 10.0f);
+        }
     }
 
     void LateUpdate()

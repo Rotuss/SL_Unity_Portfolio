@@ -54,6 +54,11 @@ public class PoolManager : MonoBehaviour
         return Select;
     }
 
+    public List<GameObject> PoolsGet(int Index)
+    {
+        return Pools[Index];
+    }
+
     // Start is called before the first frame update
     void Start()
     {
