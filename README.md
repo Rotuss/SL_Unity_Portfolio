@@ -13,12 +13,12 @@
  tilemap 혹은 enemy가 특정 범위(Area)를 벗어나면 플레이어 이동에 맞춰 위치 조정
 
 > <h3>오브젝트 풀</h3>  
- <img src="SurvivorsLike/Image/PrefabsPool.png" height="150" title="PrefabsPool">  
+ <img src="SurvivorsLike/Image/PrefabsPool.png" height="150" title="PrefabsPool">
  <img src="SurvivorsLike/Image/PoolManager.png" height="300" title="PoolManager">  <br/>
  Enemy 혹은 Player Weapon 등 할당 해제가 빈번하게 발생할 요소들을 Pool로 관리하여 재사용
 
 > <h3>해금</h3>  
- <img src="SurvivorsLike/Image/CharacterOpenBefore.png" height="300" title="CharacterOpenBefore">  
+ <img src="SurvivorsLike/Image/CharacterOpenBefore.png" height="300" title="CharacterOpenBefore">
  <img src="SurvivorsLike/Image/CharacterOpenAfter.png" height="300" title="CharacterOpenAfter"> <br/>
  특정 조건에 따른 해금 시스템으로 조건 달성 시 해금 된 캐릭터 플레이 가능
 
@@ -108,12 +108,12 @@
  랜덤을 활용하여 나온 값의 정보(ID로 분류)를 통해 3가지만 활성화 
 
  > <h3>결과</h3>  
- <img src="SurvivorsLike/Image/ResultDead.png" height="300" title="ResultDead">  
+ <img src="SurvivorsLike/Image/ResultDead.png" height="300" title="ResultDead">
  <img src="SurvivorsLike/Image/ResultSurvived.png" height="300" title="ResultSurvived">  <br/>
  플레이 결과에 따른 결과창 UI  <br/>
  플레이어가 죽었는지, 게임 플레이 시간이 다 됐는지에 따라 결과창에 대한 정보 활성화가 달라짐  
 
  > <h3>알림</h3>  
- <img src="SurvivorsLike/Image/UnlockNotice0.png" height="300" title="UnlockNotice0">  
+ <img src="SurvivorsLike/Image/UnlockNotice0.png" height="300" title="UnlockNotice0">
  <img src="SurvivorsLike/Image/UnlockNotice1.png" height="300" title="UnlockNotice1">  <br/>
  해금 관련 알림
